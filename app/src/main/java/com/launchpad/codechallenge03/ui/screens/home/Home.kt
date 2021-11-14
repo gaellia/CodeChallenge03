@@ -19,10 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.launchpad.codechallenge03.R
 import com.launchpad.codechallenge03.models.Animal
-import com.launchpad.codechallenge03.ui.theme.CodeChallenge03Theme
-import com.launchpad.codechallenge03.ui.theme.LightBlue
-import com.launchpad.codechallenge03.ui.theme.LightGreen
-import com.launchpad.codechallenge03.ui.theme.OffWhite
+import com.launchpad.codechallenge03.ui.theme.*
 
 @Composable
 fun Home(
@@ -136,7 +133,7 @@ private fun HomeContent(
             onClick = {actioner(HomeAction.NavigateAddAnimal)},
             shape = RoundedCornerShape(20.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = LightBlue,
+                backgroundColor = DarkBlue,
                 contentColor = OffWhite
             )
         ) {
@@ -158,10 +155,21 @@ fun Animal(
     animal: Animal,
     onClick: () -> Unit
 ) {
+    val backgroundColor: Color = when (animal.type) {
+        Animal.Type.LAND -> {
+            LightBrown
+        }
+        Animal.Type.AIR -> {
+            LightBlue
+        }
+        Animal.Type.SEA -> {
+            LightGreen
+        }
+    }
     Box(modifier = Modifier
         .padding(5.dp)
         .clickable { onClick() }
-        .background(color = LightGreen, shape = MaterialTheme.shapes.medium)
+        .background(color = backgroundColor, shape = MaterialTheme.shapes.medium)
     ) {
         Row(modifier = Modifier
             .padding(5.dp)
