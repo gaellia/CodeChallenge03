@@ -12,4 +12,5 @@ sealed class HomeAction {
     data class UpdateFilterSizeMedium(val apply: Boolean): HomeAction()
     data class UpdateFilterSizeLarge(val apply: Boolean): HomeAction()
 
+    object NavigateAddAnimal: HomeAction()
 }

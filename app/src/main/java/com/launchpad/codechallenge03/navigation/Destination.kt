@@ -15,5 +15,6 @@ internal sealed class Destination(val route: String){
         override fun getFormatRoute() = "details/%s"
         override fun navArguments() = listOf(id)
     }
+    object AddAnimal: Destination("addAnimal")
 
 }

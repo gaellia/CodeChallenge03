@@ -2,7 +2,7 @@ package com.launchpad.codechallenge03.ui.screens.details
 
 import androidx.lifecycle.viewModelScope
 import com.launchpad.codechallenge03.repo.DB
-import com.vog.triggerworld.core.ActionViewModel
+import com.launchpad.codechallenge03.core.ActionViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.vog.triggerworld.core
+package com.launchpad.codechallenge03.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

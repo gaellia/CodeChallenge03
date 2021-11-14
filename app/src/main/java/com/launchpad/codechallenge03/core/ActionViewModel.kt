@@ -1,4 +1,4 @@
-package com.vog.triggerworld.core
+package com.launchpad.codechallenge03.core
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableSharedFlow

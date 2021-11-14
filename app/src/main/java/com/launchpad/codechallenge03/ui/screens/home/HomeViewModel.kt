@@ -3,7 +3,7 @@ package com.launchpad.codechallenge03.ui.screens.home
 import androidx.lifecycle.viewModelScope
 import com.launchpad.codechallenge03.models.Animal
 import com.launchpad.codechallenge03.repo.DB
-import com.vog.triggerworld.core.ActionViewModel
+import com.launchpad.codechallenge03.core.ActionViewModel
 import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent.inject
 
@@ -20,6 +20,7 @@ class HomeViewModel : ActionViewModel<HomeViewState, HomeAction>(HomeViewState()
             is HomeAction.UpdateFilterTypeAir -> updateFilterType(createTypeSet(Animal.Type.AIR, action.apply))
             is HomeAction.UpdateFilterTypeLand -> updateFilterType(createTypeSet(Animal.Type.LAND, action.apply))
             is HomeAction.UpdateFilterTypeSea -> updateFilterType(createTypeSet(Animal.Type.SEA, action.apply))
+            HomeAction.NavigateAddAnimal -> {}
         }
     }
 
