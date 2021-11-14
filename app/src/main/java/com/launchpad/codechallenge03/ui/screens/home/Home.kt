@@ -1,5 +1,6 @@
 package com.launchpad.codechallenge03.ui.screens.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -20,6 +21,7 @@ import com.launchpad.codechallenge03.R
 import com.launchpad.codechallenge03.models.Animal
 import com.launchpad.codechallenge03.ui.theme.CodeChallenge03Theme
 import com.launchpad.codechallenge03.ui.theme.LightBlue
+import com.launchpad.codechallenge03.ui.theme.LightGreen
 import com.launchpad.codechallenge03.ui.theme.OffWhite
 
 @Composable
@@ -72,7 +74,8 @@ private fun HomeContent(
             )
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Spacer(modifier = Modifier.weight(1f))
                 Checkbox(
@@ -96,7 +99,8 @@ private fun HomeContent(
             }
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Spacer(modifier = Modifier.weight(1f))
                 Checkbox(
@@ -127,8 +131,8 @@ private fun HomeContent(
             }
         }
         Button( modifier = Modifier
-            .align(Alignment.BottomCenter)
-            .padding(bottom = 20.dp),
+            .align(Alignment.BottomEnd)
+            .padding(bottom = 15.dp, end = 15.dp),
             onClick = {actioner(HomeAction.NavigateAddAnimal)},
             shape = RoundedCornerShape(20.dp),
             colors = ButtonDefaults.buttonColors(
@@ -154,10 +158,10 @@ fun Animal(
     animal: Animal,
     onClick: () -> Unit
 ) {
-    Surface(modifier = Modifier
-        .padding(5.dp),
-        onClick = onClick,
-        shape = MaterialTheme.shapes.medium
+    Box(modifier = Modifier
+        .padding(5.dp)
+        .clickable { onClick() }
+        .background(color = LightGreen, shape = MaterialTheme.shapes.medium)
     ) {
         Row(modifier = Modifier
             .padding(5.dp)
