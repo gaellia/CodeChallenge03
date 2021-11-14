@@ -67,8 +67,6 @@ private fun AddAnimalContent(
         .fillMaxSize()
     ) {
         // HEADER
-        val saveIconColor: Color = if (viewState.name.isNotBlank()) Color.Black else Color.Transparent
-
         Row(modifier = Modifier
             .padding(5.dp)
             .fillMaxWidth(),
@@ -90,7 +88,9 @@ private fun AddAnimalContent(
             )
             Icon(modifier = Modifier
                 .size(40.dp)
-                .clickable {
+                .clickable(
+                    enabled = viewState.name.isNotBlank()
+                ) {
                     actioner(AddAnimalAction.InsertAnimal(
                         name = viewState.name,
                         type = viewState.type,
@@ -100,7 +100,7 @@ private fun AddAnimalContent(
                 },
                 imageVector = Icons.Default.Check,
                 contentDescription = null,
-                tint = saveIconColor
+                tint = if (viewState.name.isNotBlank()) Color.Black else Color.Transparent
             )
         }
 
