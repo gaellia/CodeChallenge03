@@ -1,7 +1,5 @@
 package com.launchpad.codechallenge03.ui.screens.home
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -119,7 +117,7 @@ private fun HomeContent(
                 Text(text = "LARGE")
                 Spacer(modifier = Modifier.weight(1f))
             }
-            LazyColumn {
+            LazyColumn{
                 items(viewState.visibleAnimals) { animal ->
                     Animal(animal = animal) {
                         actioner(HomeAction.NavigateDetails(animal.id))
@@ -132,8 +130,9 @@ private fun HomeContent(
             .padding(bottom = 15.dp, end = 15.dp),
             onClick = {actioner(HomeAction.NavigateAddAnimal)},
             shape = RoundedCornerShape(20.dp),
+            elevation = ButtonDefaults.elevation(10.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = DarkBlue,
+                backgroundColor = DarkGreen,
                 contentColor = OffWhite
             )
         ) {
@@ -166,10 +165,12 @@ fun Animal(
             LightGreen
         }
     }
-    Box(modifier = Modifier
-        .padding(5.dp)
-        .clickable { onClick() }
-        .background(color = backgroundColor, shape = MaterialTheme.shapes.medium)
+    Surface(modifier = Modifier
+        .padding(5.dp),
+        onClick = onClick,
+        shape = MaterialTheme.shapes.medium,
+        color = backgroundColor,
+        contentColor = Color.Black
     ) {
         Row(modifier = Modifier
             .padding(5.dp)

@@ -13,3 +13,6 @@ val DarkGreen = Color(0xFF38686A)
 val LightGreen = Color(0xFFA3B4A2)
 val OffWhite = Color(0xFFE6E8E6)
 val LightBrown = Color(0xFF9E8576)
+
+val DarkestBlue = Color(0xFF090C9B)
+val LightestBlue = Color(0xFFAADFEE)
