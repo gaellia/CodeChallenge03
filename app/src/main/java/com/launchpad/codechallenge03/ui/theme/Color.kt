@@ -19,3 +19,4 @@ val DarkBrown = Color(0xFF6B584C)
 val MediumGreen = Color(0xFF789277)
 
 val DeleteRed = Color(0xFF921120)
+val ConfirmGreen = Color(0xFF8DC954)

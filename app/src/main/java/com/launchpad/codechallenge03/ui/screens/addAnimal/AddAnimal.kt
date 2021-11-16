@@ -1,7 +1,9 @@
 package com.launchpad.codechallenge03.ui.screens.addAnimal
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -22,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.launchpad.codechallenge03.models.Animal
+import com.launchpad.codechallenge03.ui.theme.*
 
 
 @ExperimentalComposeUiApi
@@ -65,11 +68,14 @@ private fun AddAnimalContent(
 ) {
     Column(modifier = Modifier
         .fillMaxSize()
+        .background(color = OffWhite)
     ) {
         // HEADER
         Row(modifier = Modifier
+            .background(color = OffWhite)
             .padding(5.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .height(50.dp),
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -100,18 +106,30 @@ private fun AddAnimalContent(
                 },
                 imageVector = Icons.Default.Check,
                 contentDescription = null,
-                tint = if (viewState.name.isNotBlank()) Color.Black else Color.Transparent
+                tint = if (viewState.name.isNotBlank()) ConfirmGreen else Color.Transparent
             )
         }
 
         // FIELDS
         val keyboardController = LocalSoftwareKeyboardController.current
 
-        Text(modifier = Modifier.fillMaxWidth(),
-            text = "Name")
-        TextField(modifier = Modifier.fillMaxWidth(),
+        Text(modifier = Modifier
+            .padding(vertical = 10.dp, horizontal = 20.dp)
+            .fillMaxWidth(),
+            text = "Name",
+            style = MaterialTheme.typography.body1
+        )
+        TextField(modifier = Modifier
+            .padding(horizontal = 20.dp)
+            .fillMaxWidth(),
             value = viewState.name,
             singleLine = true,
+            shape = RoundedCornerShape(10.dp),
+            colors = TextFieldDefaults.textFieldColors(
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                textColor = Color.Black
+            ),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(
                 onDone = {keyboardController?.hide()}
@@ -119,10 +137,16 @@ private fun AddAnimalContent(
             onValueChange = { newName -> actioner(AddAnimalAction.UpdateName(newName)) }
         )
 
-        Text(modifier = Modifier.fillMaxWidth(),
-            text = "Type")
+        Text(modifier = Modifier
+            .padding(vertical = 10.dp, horizontal = 20.dp)
+            .fillMaxWidth(),
+            text = "Type",
+            style = MaterialTheme.typography.body1
+        )
         ExposedDropdownMenuBox(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
+                .fillMaxWidth(),
             expanded = viewState.expandedTypeMenu,
             onExpandedChange = {
                 actioner(AddAnimalAction.ToggleTypeMenu)
@@ -138,7 +162,12 @@ private fun AddAnimalContent(
                         expanded = viewState.expandedTypeMenu
                     )
                 },
-                colors = ExposedDropdownMenuDefaults.textFieldColors()
+                colors = ExposedDropdownMenuDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    textColor = Color.Black
+                ),
+                shape = RoundedCornerShape(10.dp)
             )
             ExposedDropdownMenu(
                 modifier = Modifier.fillMaxWidth(),
@@ -162,10 +191,16 @@ private fun AddAnimalContent(
             }
         }
 
-        Text(modifier = Modifier.fillMaxWidth(),
-            text = "Size")
+        Text(modifier = Modifier
+            .padding(vertical = 10.dp, horizontal = 20.dp)
+            .fillMaxWidth(),
+            text = "Size",
+            style = MaterialTheme.typography.body1
+        )
         ExposedDropdownMenuBox(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .padding(horizontal = 20.dp)
+                .fillMaxWidth(),
             expanded = viewState.expandedSizeMenu,
             onExpandedChange = {
                 actioner(AddAnimalAction.ToggleSizeMenu)
@@ -181,7 +216,12 @@ private fun AddAnimalContent(
                         expanded = viewState.expandedSizeMenu
                     )
                 },
-                colors = ExposedDropdownMenuDefaults.textFieldColors()
+                colors = ExposedDropdownMenuDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                    textColor = Color.Black
+                ),
+                shape = RoundedCornerShape(10.dp)
             )
             ExposedDropdownMenu(
                 modifier = Modifier.fillMaxWidth(),
@@ -205,15 +245,27 @@ private fun AddAnimalContent(
             }
         }
 
-        Text(modifier = Modifier.fillMaxWidth(),
-            text = "Description")
-        TextField(modifier = Modifier.fillMaxWidth(),
+        Text(modifier = Modifier
+            .padding(vertical = 10.dp, horizontal = 20.dp)
+            .fillMaxWidth(),
+            text = "Description",
+            style = MaterialTheme.typography.body1
+        )
+        TextField(modifier = Modifier
+            .padding(horizontal = 20.dp)
+            .fillMaxWidth()
+            .fillMaxHeight(0.8f),
             value = viewState.description,
+            shape = RoundedCornerShape(10.dp),
+            colors = TextFieldDefaults.textFieldColors(
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                textColor = Color.Black
+            ),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(
                 onDone = {keyboardController?.hide()}
             ),
-            maxLines = 10,
             onValueChange = {newDesc -> actioner(AddAnimalAction.UpdateDescription(newDesc))}
         )
     }
