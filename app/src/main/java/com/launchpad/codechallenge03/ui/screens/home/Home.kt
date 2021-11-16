@@ -281,7 +281,8 @@ fun Animal(
                     style = TextStyle.Default.copy(
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = RichBlack
+                        color = RichBlack,
+                        fontFamily = karlaFontFamily
                     )
                 )
                 Row(modifier = Modifier
@@ -326,7 +327,7 @@ private fun AnimalPreview() {
     )){}
 }
 
-//@Preview (showBackground = true)
+@Preview (showBackground = true)
 @Composable
 private fun HomePreview() {
     CodeChallenge03Theme() {

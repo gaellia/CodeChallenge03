@@ -18,5 +18,4 @@ val LightBrown = Color(0xFF9E8576)
 val DarkBrown = Color(0xFF6B584C)
 val MediumGreen = Color(0xFF789277)
 
-val DarkestBlue = Color(0xFF090C9B)
-val LightestBlue = Color(0xFFAADFEE)
+val DeleteRed = Color(0xFF921120)

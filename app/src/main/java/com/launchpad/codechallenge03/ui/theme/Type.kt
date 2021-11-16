@@ -35,6 +35,16 @@ val Typography = Typography(
     ),
     h3 = TextStyle(
         fontFamily = karlaFontFamily
+    ),
+    h4 = TextStyle(
+        fontFamily = karlaFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp
+    ),
+    h5 = TextStyle(
+        fontFamily = karlaFontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp
     )
     /* Other default text styles to override
     button = TextStyle(
